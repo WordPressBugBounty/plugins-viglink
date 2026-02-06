@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: VigLink
-Version: 1.0.6
-Description: The easiest way to monetize the links on your site.  Link directly to other sites, just like you do today.  VigLink automatically affiliates those links -- even links on posts you've already written -- with no extra editing!  Get stats on which links are making you the most money, which are most clicked, and more.
-Author: VigLink
-Author URI: http://www.viglink.com
+Plugin Name: Sovrn
+Version: 1.0.7
+Description: The easiest way to monetize the links on your site.  Link directly to other sites, just like you do today.  Sovrn automatically affiliates those links -- even links on posts you've already written -- with no extra editing!  Get stats on which links are making you the most money, which are most clicked, and more.
+Author: Sovrn
+Author URI: https://www.sovrn.com
 License: GPLv3
 
 * +--------------------------------------------------------------------------+
@@ -31,13 +31,13 @@ define( 'VIGLINK_WORDPRESS_VERSION_SUPPORTED', version_compare( get_bloginfo( "v
 define( 'VIGLINK_ENABLED', VIGLINK_WORDPRESS_VERSION_SUPPORTED && viglink_validate_option( 'key' ) );
 
 /**
- * Print the VigLink <script/> tags (see: http://www.viglink.com/install)
+ * Print the Sovrn <script/> tags (see: http://www.viglink.com/install)
  */
 function viglnk_script() {
   $key = get_option( "key" );
   if( $key ) {
 ?>
-  <!-- VigLink: http://viglink.com -->
+  <!-- Sovrn: https://www.sovrn.com -->
   <script type="text/javascript">
     var vglnk = { key: '<?php print addslashes( $key ); ?>' };
 
@@ -47,23 +47,23 @@ function viglnk_script() {
       var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);
     }(document, 'script'));
   </script>
-  <!-- end VigLink -->
+  <!-- end Sovrn -->
 <?php
   }
 }
 
 /**
- * Print the VigLink plugin settings page
+ * Print the Sovrn plugin settings page
  */
 function viglink_options() { ?>
   <div class="wrap">
     <div class="icon32">&nbsp;</div>
-    <h2>VigLink Settings</h2>
+    <h2>Sovrn Settings</h2>
   <?php
     if( ! VIGLINK_WORDPRESS_VERSION_SUPPORTED ) {
   ?>
     <p style="width: 50%;">
-      Thanks for your interest in VigLink!  Unfortunately, the VigLink plugin
+      Thanks for your interest in Sovrn!  Unfortunately, the Sovrn plugin
       requires WordPress <?php print VIGLINK_MIN_WORDPRESS_REQUIRED ?> or newer.
       Please try again once you've upgraded.
     </p>
@@ -74,7 +74,7 @@ function viglink_options() { ?>
     <div class="error fade">
       <p>
         <strong>Invalid API Key.</strong>
-        VigLink is disabled until you enter a valid API key.
+        Sovrn is disabled until you enter a valid API key.
       </p>
     </div>
   <?php
@@ -82,9 +82,8 @@ function viglink_options() { ?>
   ?>
     <p class="instructions">
       Copy your API key from
-      <a href="http://www.viglink.com/account">viglink.com</a> and paste it
-      below, or <a href="#" id="viglink-fetch">click here</a> to retrieve it
-      automatically.
+      <a href="https://platform.sovrn.com/commerce/settings/site?tab=approved">sovrn.com</a> and paste it
+      below.
     </p>
 
     <form method="post" action="options.php">
@@ -125,9 +124,9 @@ function viglink_options() { ?>
   </div>
 <?php } ?>
   <p style="width: 50%; font-size: 0.8em;">
-    Have questions or comments about VigLink or the plugin? Suggestions for
+    Have questions or comments about Sovrn or the plugin? Suggestions for
     something you'd like us to add? Please
-    <a href="http://www.viglink.com/support">let us know</a>!
+    <a href="https://knowledge.sovrn.com/kb/contact-sovrn-support">contact Sovrn Support</a>.
   </p>
 <?php
 }
@@ -171,7 +170,7 @@ function viglink_admin_includes() {
  */
 function viglink_options_menu() {
   // add the options page to the settings menu
-  $page = add_options_page( "VigLink Options", "VigLink", "manage_options", __FILE__, "viglink_options" );
+  $page = add_options_page( "Sovrn Options", "Sovrn", "manage_options", __FILE__, "viglink_options" );
 
   // include plugin-specific includes on the options page
   add_action( "admin_print_scripts-" . $page, "viglink_admin_includes" );

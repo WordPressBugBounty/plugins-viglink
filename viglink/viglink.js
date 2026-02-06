@@ -26,13 +26,13 @@
       var error = $("<div/>").addClass( "error fade" ).html( $("<p/>").html(
         'We had some trouble retrieving your API key.\
         Please make sure you\'re logged in at \
-        <a href="http://www.viglink.com/users/login">viglink.com</a>, then try again.'
+        <a href="http://www.viglink.com/users/login">sovrn.com</a>, then try again.'
       ) );
 
       if( error_count > 1 ) {
         error.append( $("<p/>").html(
           'If it still won\'t work, copy the API key from your\
-          <a href="http://www.viglink.com/account">VigLink account page</a>\
+          <a href="http://www.viglink.com/account">Sovrn account page</a>\
           and paste it below.'
         ) );
       }
